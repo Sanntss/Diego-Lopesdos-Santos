@@ -1,0 +1,47 @@
+#include  <stdio.h>
+#include <locale.h>
+#include <string.h>
+
+int main() {
+	setlocale(LC_ALL, "");
+	
+	int primeiroNumero, segundoNumero, soma, produto, maior, menor;
+	int maiorNumero, menorNumero;
+	float media;
+	
+	printf("Digite o  primeiro número: ");
+	scanf("%i",&primeiroNumero);
+	
+	printf("Digite o  segundo número: ");        
+	scanf("%i",&segundoNumero);
+	
+	soma = primeiroNumero + segundoNumero;
+	produto = primeiroNumero * segundoNumero;
+	//media = primeiroNumero + segundoNumero) / 2;
+	 media = soma / (float) 2;
+	 
+	 if (primeiroNumero > segundoNumero) {
+	 	maiorNumero = primeiroNumero;
+	 	menorNumero = segundoNumero;
+	 } else {
+	 	maiorNumero = primeiroNumero;
+	 	menorNumero = segundoNumero;
+}
+	
+	printf("\n=== Exibindo resultados === \n");
+	printf("Primeiro número: %i \n", primeiroNumero);
+	printf("Segundo número: %i \n\n", segundoNumero);
+	printf("Soma: %i \n", soma);
+	printf("Produto: %i \n", produto);
+	printf("Média: %.lf \n\n", media);
+	
+	if (primeiroNumero == segundoNumero) {
+		printf("Os números são iguais.");
+	} else {
+		printf("Maior número: %i \n", maiorNumero);
+		printf("Menor número: %i \n", menorNumero);
+	}
+	
+	  return 0;
+	 
+}
