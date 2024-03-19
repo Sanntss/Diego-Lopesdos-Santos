@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main()  {
+	setlocale(LC_ALL, "");
+    char nome[200];
+    int idade;
+    float primeiraNota, segundaNota, terceiraNota, soma, media
+    
+
+   printf("Digite seu nome: ");
+   scanf("%s",&nome);
+   
+    
+    printf("Digite sua idade: ");
+    scanf("%d",&idade);
+    
+    printf("Digite a primeira nota");
+    scanf("%f",&primeiraNota);
+    
+    printf("Digite a segunda nota");
+    scanf("%f",&segundaNota);
+    
+    printf("Digite a terceira nota");
+    scanf("%f",&terceiraNota);
+    
+    printf("\n=== Exibindo Resultados ===");
+    printf("\nNome do aluno: %s\n", nome);
+    printf("Idade do aluno: %i anos\n", idade);
+    printf("primeira nota: %.lf\n",primeiraNota);
+    printf("segunda nota: %.lf\n",segundaNota);
+    printf("terceira nota: %.lf\n",terceiraNota); 
+    
+    if(media =>7) printf ("\nAluno aprovado!");
+    else printf ("\nAluno reprovado!")
+    
+    return 0;
+    getchar ();
+    system("\npause");
+    
+}
