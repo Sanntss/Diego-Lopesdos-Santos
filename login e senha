@@ -17,11 +17,11 @@ int main() {
    scanf("%s",&senha);
    
     
-   if (strcmp(login, loginSalvo) == 0 && strcmp(senha, senha salva) == 0){
+   if (strcmp(login, loginSalvo) == 0 && strcmp(senha, senhaSalva) == 0) {
    	  printf("Bem vindo!");
    } else {
    	printf("Acesso negado!");
    }
    
-   return 0
+   return 0;
 }
