@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+struct Pessoa {
+    int idade;
+    char genero;
+    float salario;
+};
+
+int main() {
+    struct Pessoa pessoas[100]; // Assume que não há mais de 100 pessoas
+    int opcao, contador = 0;
+    float soma_salarios = 0;
+    int maior_idade = 0, menor_idade = 200;
+    int mulheres_salario_maior_5000 = 0;
+
+    do {
+        printf("\nMenu:\n");
+        printf("1. Adicionar pessoa\n");
+        printf("2. Exibir resultados e sair\n");
+        printf("Opção: ");
+        scanf("%d", &opcao);
+
+        switch(opcao) {
+            case 1:
+                printf("\nDigite a idade da pessoa: ");
+                scanf("%d", &pessoas[contador].idade);
+
+                printf("Digite o gênero da pessoa (M/F): ");
+                scanf(" %c", &pessoas[contador].genero);
+
+                printf("Digite o salário da pessoa: ");
+                scanf("%f", &pessoas[contador].salario);
+
+                soma_salarios += pessoas[contador].salario;
+
+                if (pessoas[contador].idade > maior_idade)
+                    maior_idade = pessoas[contador].idade;
+                if (pessoas[contador].idade < menor_idade)
+                    menor_idade = pessoas[contador].idade;
+
+                if (pessoas[contador].genero == 'F' && pessoas[contador].salario >= 5000)
+                    mulheres_salario_maior_5000++;
+
+                contador++;
+                break;
+
+            case 2:
+                if (contador == 0) {
+                    printf("\nNenhuma pessoa foi adicionada.\n");
+                    break;
+                }
+
+                printf("\nMédia de salário do grupo: %.2f\n", soma_salarios / contador);
+                printf("Maior idade do grupo: %d\n", maior_idade);
+                printf("Menor idade do grupo: %d\n", menor_idade);
+                printf("Quantidade de mulheres com salário a partir de R$ 5.000,00: %d\n", mulheres_salario_maior_5000);
+                break;
+
+            default:
+                printf("\nOpção inválida. Escolha novamente.\n");
+        }
+
+    } while(opcao != 2);
+
+    return 0;
+}
