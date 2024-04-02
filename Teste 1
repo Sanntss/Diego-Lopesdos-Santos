@@ -1,0 +1,51 @@
+# Inicialização das variáveis
+soma_salarios = 0
+contador_pessoas = 0
+idade_maior = 0
+idade_menor = float('inf')
+mulheres_salario_alto = 0
+
+# Menu
+print("Menu:")
+print("1. Adicionar pessoa")
+print("2. Exibir resultados e sair")
+
+# Loop para receber entrada do usuário
+while True:
+    codigo = int(input("Digite o número do código: "))
+    
+    if codigo == 1:
+        idade = int(input("Digite a idade: "))
+        sexo = input("Digite o sexo (M/F): ")
+        salario = float(input("Digite o salário: "))
+        
+        # Atualização das variáveis
+        soma_salarios += salario
+        contador_pessoas += 1
+        if idade > idade_maior:
+            idade_maior = idade
+        if idade < idade_menor:
+            idade_menor = idade
+        if sexo == 'F' and salario >= 5000:
+            mulheres_salario_alto += 1
+            
+    elif codigo == 2:
+        # Verificação se há dados para exibir
+        if contador_pessoas == 0:
+            print("Nenhum dado foi inserido.")
+        else:
+            # a) Média de salário
+            media_salario = soma_salarios / contador_pessoas
+            print("Média de salário do grupo:", media_salario)
+            
+            # b) Maior e menor idade
+            print("Maior idade do grupo:", idade_maior)
+            print("Menor idade do grupo:", idade_menor)
+            
+            # c) Quantidade de mulheres com salário a partir de R$ 5.000,00
+            print("Quantidade de mulheres com salário a partir de R$ 5.000,00:", mulheres_salario_alto)
+            
+        break
+    
+    else:
+        print("Código inválido. Por favor, digite 1 ou 2.")
