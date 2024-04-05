@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+int main() {
+    int opcao, idade, quantidade_mulheres = 0;
+    char sexo;
+    float salario, soma_salario = 0, media_salario, maior_idade = 0, menor_idade = 999;
+
+    do {
+        printf("\nMenu\n");
+        printf("1. Adicionar pessoa\n");
+        printf("2. Exibir resultados e sair\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+
+        switch(opcao) {
+            case 1:
+                printf("\nDigite a idade: ");
+                scanf("%d", &idade);
+
+                if (idade > maior_idade) {
+                    maior_idade = idade;
+                }
+
+                if (idade < menor_idade) {
+                    menor_idade = idade;
+                }
+
+                printf("Digite o sexo (M/F): ");
+                scanf(" %c", &sexo);
+
+                printf("Digite o salario: ");
+                scanf("%f", &salario);
+
+                if (sexo == 'F' && salario >= 5000) {
+                    quantidade_mulheres++;
+                }
+
+                soma_salario += salario;
+                break;
+            case 2:
+                if (soma_salario == 0) {
+                    printf("\nNenhum dado foi inserido.\n");
+                } else {
+                    media_salario = soma_salario / (float)opcao;
+                    printf("\nMédia de salário do grupo: %.2f\n", media_salario);
+                    printf("Maior idade do grupo: %d\n", maior_idade);
+                    printf("Menor idade do grupo: %d\n", menor_idade);
+                    printf("Quantidade de mulheres com salário a partir de R$ 5.000,00: %d\n", quantidade_mulheres);
+                }
+                break;
+            default:
+                printf("\nOpcao invalida. Tente novamente.\n");
+        }
+    } while(opcao != 2);
+
+    return 0;
+}
