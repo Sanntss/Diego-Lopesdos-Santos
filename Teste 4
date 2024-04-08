@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char login_correto[] = "usuario123";
+    char senha_correta[] = "senha123";
+    char login[20];
+    char senha[20];
+
+    do {
+        printf("Digite seu login: ");
+        scanf("%s", login);
+        printf("Digite sua senha: ");
+        scanf("%s", senha);
+
+        if (strcmp(login, login_correto) == 0 && strcmp(senha, senha_correta) == 0) {
+            printf("Login e senha corretos! Bem-vindo, %s.\n", login);
+            break;
+        } else {
+            printf("Login ou senha incorretos. Tente novamente.\n");
+        }
+    } while (1);
+
+    return 0;
+}
