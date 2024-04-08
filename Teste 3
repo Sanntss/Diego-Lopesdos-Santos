@@ -1,12 +1,17 @@
 #include <stdio.h>
+#include<locale.h>
+#include<limits.h> 
 
 int main() {
+	setlocale(LC_ALL, "");
+	
     int opcao;
     int total_familias = 0;
     float soma_salario = 0, soma_filhos = 0;
     float salario, num_filhos;
-    float maior_salario = 0, menor_salario = 999999999;
-
+    float maior_salario = INT_MIN, menor_salario = INT_MAX;
+     
+    system("cls || clear"); 
     printf("Menu:\n");
     printf("1. Adicionar família\n");
     printf("2. Sair e exibir resultados\n");
@@ -50,3 +55,6 @@ int main() {
 
     return 0;
 }
+
+	
+	 
