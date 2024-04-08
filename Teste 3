@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+int main() {
+    int opcao;
+    int total_familias = 0;
+    float soma_salario = 0, soma_filhos = 0;
+    float salario, num_filhos;
+    float maior_salario = 0, menor_salario = 999999999;
+
+    printf("Menu:\n");
+    printf("1. Adicionar família\n");
+    printf("2. Sair e exibir resultados\n");
+
+    do {
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                printf("Digite o salário da família: ");
+                scanf("%f", &salario);
+                printf("Digite o número de filhos da família: ");
+                scanf("%f", &num_filhos);
+
+                soma_salario += salario;
+                soma_filhos += num_filhos;
+                total_familias++;
+
+                if (salario > maior_salario) {
+                    maior_salario = salario;
+                }
+                if (salario < menor_salario) {
+                    menor_salario = salario;
+                }
+                break;
+
+            case 2:
+                printf("\nResultados:\n");
+                printf("a) Total de famílias: %d\n", total_familias);
+                printf("b) Média do salário da população: %.2f\n", soma_salario / total_familias);
+                printf("c) Média do número de filhos: %.2f\n", soma_filhos / total_familias);
+                printf("d) Maior salário: %.2f\n", maior_salario);
+                printf("e) Menor salário: %.2f\n", menor_salario);
+                break;
+
+            default:
+                printf("Opção inválida. Escolha novamente.\n");
+        }
+    } while (opcao != 2);
+
+    return 0;
+}
