@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <locale.h>
+
+#define TAM 5
+
+int main() {
+	setlocale(LC_ALL, "");
+	
+    int numeros[TAM];
+    int i;
+    int menor, maior;
+
+    // Solicita ao usuário que insira os 5 números e armazena no vetor
+    printf("Digite 5 números:\n");
+    for (i = 0; i < TAM; i++) {
+        printf("Número %d: ", i+1);
+        scanf("%d", &numeros[i]);
+    }
+
+    // Inicializa as variáveis menor e maior com o primeiro elemento do vetor
+    menor = maior = numeros[0];
+
+    // Encontra o menor e o maior número no vetor
+    for (i = 1; i < TAM; i++) {
+        if (numeros[i] < menor) {
+            menor = numeros[i];
+        }
+        if (numeros[i] > maior) {
+            maior = numeros[i];
+        }
+    }
+
+    // Mostra os números informados pelo usuário
+    printf("\nNúmeros informados pelo usuário:\n");
+    for (i = 0; i < TAM; i++) {
+        printf("%d ", numeros[i]);
+    }
+
+    // Mostra o menor e o maior número
+    printf("\n\nO menor número é: %d\n", menor);
+    printf("O maior número é: %d\n", maior);
+
+    return 0;
+}
