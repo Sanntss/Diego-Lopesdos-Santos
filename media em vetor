@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <locale.h>
+
+#define TAM 4
+
+int main() {
+int i;	
+    setlocale(LC_ALL, "");
+    
+    float notas[TAM];
+    float soma = 0, media;
+    
+    // Leitura das notas
+    printf("Digite as 4 notas:\n");
+    for( i = 0; i< 4; i++) {
+        printf("Nota %d: ", i+1);
+        scanf("%f", &notas[i]);
+        soma += notas[i];
+    }
+    
+    // Calcula a média
+    media = soma / 4.0;
+
+    printf("A media das notas e: %.2f\n", media);
+
+    return 0;
+}
