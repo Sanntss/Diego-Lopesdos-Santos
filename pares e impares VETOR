@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <locale.h>
+
+#define TAM 6
+
+int main() {
+	setlocale(LC_ALL, "");
+    // Declaração das variáveis
+    int i;
+    int numeros[TAM];
+    int pares = 0, impares = 0;
+
+    // Solicita ao usuário que insira os 6 números e armazena no vetor
+    printf("Digite 6 números:\n");
+    for (i = 0; i < TAM; i++) {
+        printf("Número %d: ", i+1);
+        scanf("%d", &numeros[i]);
+    }
+
+    // Verifica quantos números são pares e quantos são ímpares
+    for (i = 0; i < TAM; i++) {
+        if (numeros[i] % 2 == 0) {
+            pares++;
+        } else {
+            impares++;
+        }
+    }
+
+    // Mostra os números informados pelo usuário
+    printf("\nNúmeros informados pelo usuário:\n");
+    for (i = 0; i < TAM; i++) {
+        printf("%d ", numeros[i]);
+    }
+
+    // Mostra a quantidade de números pares e ímpares
+    printf("\n\nQuantidade de números pares: %d\n", pares);
+    printf("Quantidade de números ímpares: %d\n", impares);
+
+    return 0;
+}
