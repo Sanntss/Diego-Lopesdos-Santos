@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <locale.h>
+ 
+ #define TAM 6
+
+int main() {
+	setlocale(LC_ALL, ""); 
+    int valores[TAM];
+    int i;
+
+    printf("Digite 6 valores inteiros positivos e pares:\n");
+
+    // Recebe os valores e verifica se são inteiros positivos e pares
+    for (i = 0; i < TAM; i++) {
+        do {
+            scanf("%d", &valores[i]);
+            if (valores[i] <= 0 || valores[i] % 2 != 0) {
+                printf("Por favor, digite um valor inteiro positivo e par: ");
+            }
+        } while (valores[i] <= 0 || valores[i] % 2 != 0);
+    }
+
+    // Mostra os valores na ordem inversa
+    printf("Valores na ordem inversa:\n");
+    for (i = 5; i >= 0; i--) {
+        printf("%d ", valores[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
