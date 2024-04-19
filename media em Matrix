@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <locale.h> // Biblioteca necessária para setlocale
+
+int main() {
+    setlocale(LC_ALL, ""); // Configura a localização de acordo com o ambiente do sistema
+
+    char disciplinas[3][50]; // Array para guardar os nomes das disciplinas
+    float notas[3][2]; // Array para guardar as notas (duas notas para cada disciplina)
+    float medias[3]; // Array para guardar as médias das disciplinas
+    int i;
+
+    // Leitura dos nomes das disciplinas e das notas
+    for (i = 0; i < 3; i++) {
+        printf("Entre com o nome da disciplina %d: ", i + 1);
+        scanf(" %[^\n]", disciplinas[i]); // Lê uma string até que seja pressionada a tecla Enter
+        printf("Entre com a primeira nota da disciplina %s: ", disciplinas[i]);
+        scanf("%f", &notas[i][0]);
+        printf("Entre com a segunda nota da disciplina %s: ", disciplinas[i]);
+        scanf("%f", &notas[i][1]);
+    }
+
+    // Cálculo das médias e impressão dos resultados
+    printf("\nResultados:\n");
+    for (i = 0; i < 3; i++) {
+        medias[i] = (notas[i][0] + notas[i][1]) / 2.0; // Calcula a média das duas notas
+
+        printf("\nDisciplina: %s\n", disciplinas[i]);
+        printf("Nota 1: %.2f\n", notas[i][0]);
+        printf("Nota 2: %.2f\n", notas[i][1]);
+        printf("Média: %.2f\n", medias[i]);
+
+        // Verificação da situação do aluno
+        if (medias[i] >= 7.0) {
+            printf("Situação: Aprovado\n");
+        } else if (medias[i] >= 5.0) {
+            printf("Situação: Recuperação\n");
+        } else {
+            printf("Situação: Reprovado\n");
+        }
+    }
+
+    return 0;
+}
